@@ -11,7 +11,7 @@
 
 <body>
     <div class="container">
-        <table>
+        <table id="newTable">
             <tr>
                 <th>Name</th>
                 <th>Created</th>
@@ -20,9 +20,43 @@
                 <th>Dates</th>
                 <th>SYMBOLS</th>
             </tr>
-
         </table>
+        <button id="createNote">
+            Create Note
+        </button>
+        <div id="formForList">
+            <form onsubmit="return false;">
+                <div class="form-inner">
+                    <h2>Fill the next form, please</h2>
+                    <div class="form-content">
+                        <label for="nameOfTask">Name of point:</label>
+                        <p><input type="text" name="nameOfTask" id="nameOfTask" required></p>
+                        <label for="created">Created:</label>
+                        <p><input type="date" id="created" name="created" value="2021-01-01" min="2021-01-01"
+                                max="2025-12-31" required></p>
+                        <label for="category">Type of your point:</label>
+                        <p>
+                            <select name="category" id="category">
+                                <option value="Task">Task</option>
+                                <option value="RandomThought">Random Thought</option>
+                                <option value="Idea">Idea</option>
+                            </select>
+                        </p>
+                        <label for="content">Type content of your point:</label>
+                        <p><input type="text" name="content" required id="content"></p>
+                        <label for="startDate">Start Date:</label>
+                        <p><input type="date" name="startDate" id="startDate" value="2021-01-01" min="2021-01-01"
+                                max="2025-12-31"></p>
+                        <label for="endDate">End Date:</label>
+                        <p><input type="date" name="endDate" id="endDate" value="2021-01-01" min="2021-01-01"
+                                max="2025-12-31"></p>
+                        <p><button id="done">Done</button></p>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
+    <script src="./logic.js" type="module"></script>
 
 </body>
 
