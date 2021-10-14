@@ -11,15 +11,16 @@ createBtn.addEventListener("click", () => {
     form.style.display = "block"
 })
 doneBtn.addEventListener("click", () => {
-    let created = document.querySelector('#created').value
-    let nameOfPoint = document.querySelector('#nameOfTask').value
-    let category = document.querySelector('#category').value
-    let content = document.querySelector('#content').value
-    let dates = document.querySelector('#startDate').value + ' ' + document.querySelector('#endDate').value
-    let memberOfList = functions.writeObj(nameOfPoint, created, category, content, dates)
-    list.push(memberOfList)
-    form.style.display = "none"
+    let memberOfList = functions.writeData(list)
     functions.writeNewElemToTable(memberOfList, table, list.length)
+})
+
+let checkBox = document.querySelector("#dateOn")
+checkBox.addEventListener("change", e => {
+    if (e.target.checked)
+        functions.dateOn()
+    else
+        functions.dateOff()
 })
 
 
