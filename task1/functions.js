@@ -69,6 +69,7 @@ function getIndOfElem(element, list) {
     })
     return index
 }
+//remove some element from the table
 export function deleteElemFromTable(element, list) {
     let indForDel = getIndOfElem(element, list)
     list.splice(indForDel, 1)
@@ -91,7 +92,7 @@ export function editElementInTableUnableDefault() {
     document.querySelector("#category").value = "Task"
     document.querySelector("#content").value = ""
 }
-
+//edit some element in the table
 export function editElementInTable(element, list, table) {
     try {
         let form = document.querySelector('#formForList')
@@ -111,7 +112,15 @@ export function editElementInTable(element, list, table) {
         console.log("Catch ERR")
     }
 }
-
+//archive some element
+export function archiveElementInTable(element, list, archive) {
+    element.remove()
+    let indInList = getIndOfElem(element, list)
+    archive.push(list[indInList])
+    list.splice(indInList, 1)
+    console.log(archive)
+    console.log(list)
+}
 
 // hiding date in form
 let dateBlock = document.querySelector("#blockWithDate")

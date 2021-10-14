@@ -4,6 +4,7 @@ let createBtn = document.querySelector('#createNote')
 let form = document.querySelector('#formForList')
 let table = document.querySelector('#newTable')
 let list = [].concat(defaultObjs.massOfObjs)
+let archive = []
 let editBtn = document.querySelector('#editBtn')
 let editBox = document.querySelector('#editBox')
 functions.writeTableWithDefault(list, table)
@@ -42,10 +43,9 @@ table.addEventListener("click", e => {
             editBtn.addEventListener("click", () => {
                 functions.editElementInTable(e.target.parentElement.parentElement.parentElement, list, table)
             })
-
             break
         case "arch":
-            console.log("arh")
+            functions.archiveElementInTable(e.target.parentElement.parentElement.parentElement, list, archive)
             break
         case "del":
             functions.deleteElemFromTable(e.target.parentElement.parentElement.parentElement, list)
