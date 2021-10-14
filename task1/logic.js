@@ -12,7 +12,8 @@ createBtn.addEventListener("click", () => {
 })
 doneBtn.addEventListener("click", () => {
     let memberOfList = functions.writeData(list)
-    functions.writeNewElemToTable(memberOfList, table, list.length)
+    if (memberOfList)
+        functions.writeNewElemToTable(memberOfList, table, list.length)
 })
 
 let checkBox = document.querySelector("#dateOn")

@@ -6,10 +6,15 @@ export function writeData(arr) {
     let category = document.querySelector('#category').value
     let content = document.querySelector('#content').value
     let dates = document.querySelector('#startDate').value + ' ' + document.querySelector('#endDate').value
-    let memberOfList = writeObj(nameOfPoint, created, category, content, dates)
-    arr.push(memberOfList)
-    form.style.display = "none"
-    return memberOfList
+    if (!nameOfPoint || !category) {
+        alert("Name of point and content can't be empty")
+        return false
+    } else {
+        let memberOfList = writeObj(nameOfPoint, created, category, content, dates)
+        arr.push(memberOfList)
+        form.style.display = "none"
+        return memberOfList
+    }
 }
 export function writeObj(nameOfPoint, created, category, content, dates) {
     let objForList = {}
