@@ -10,7 +10,7 @@ th{
     color: white;
     background: grey;
 }
-#formForList,#blockWithDate{
+#formForList,#blockWithDate,#editBox,#editBtn{
     display: none;
 }
 #icons{
