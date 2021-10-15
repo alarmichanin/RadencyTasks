@@ -1,6 +1,7 @@
 import * as functions from './functions.js'
 import * as statFunc from './statisticTable.js'
 import * as defaultObjs from './defaultObj.js'
+import * as change from './changeInTable.js'
 let createBtn = document.querySelector('#createNote')
 let archiveBtn = document.querySelector('#hideArchive')
 let doneBtn = document.querySelector('#done')
@@ -25,7 +26,7 @@ createBtn.addEventListener("click", () => {
     doneBtn.style.display = "block"
     editBtn.style.display = "none"
     editBox.style.display = "none"
-    functions.editElementInTableUnableDefault()
+    change.editElementInTableUnableDefault()
 })
 
 doneBtn.addEventListener("click", () => {
@@ -55,9 +56,10 @@ table.addEventListener("click", e => {
             editBtn.style.display = "block"
             editBox.style.display = "block"
             edElem = e.target
-            functions.editElementInTableSetDefault(e.target.parentElement.parentElement.parentElement, list)
+            change.editElementInTableSetDefault(e.target.parentElement.parentElement.parentElement, list)
             editBtn.addEventListener("click", () => {
-                functions.editElementInTable(edElem.parentElement.parentElement.parentElement, list, table)
+                change.editElementInTable(edElem.parentElement.parentElement.parentElement, list, table)
+                functions.dateOff()
             })
             break
         case "arch":
@@ -65,7 +67,7 @@ table.addEventListener("click", e => {
             fillStats()
             break
         case "del":
-            functions.deleteElemFromTable(e.target.parentElement.parentElement.parentElement, list)
+            change.deleteElemFromTable(e.target.parentElement.parentElement.parentElement, list)
             fillStats()
             break
         case "archive":
