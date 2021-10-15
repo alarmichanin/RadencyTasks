@@ -61,7 +61,17 @@
                 </form>
             </div>
         </div>
+        <div id="statisticDiv">
+            <table id="statisticTable">
+                <tr id="statisticTr">
+                    <th>Note Category</th>
+                    <th>Active</th>
+                    <th>Archived</th>
+                </tr>
+            </table>
+        </div>
     </div>
+
     <div id="archiveDiv">
         <table id="archiveTable">
             <tr id="archiveTr">
@@ -70,11 +80,13 @@
                 <th>Category</th>
                 <th>Content</th>
                 <th>Dates</th>
-                <th id="icons"><i class="fas fa-inbox" id="archive"></i></th>
+                <th id="icons"><i class="fas fa-times-circle"></i></i></th>
             </tr>
         </table>
         <button id="hideArchive"><i class="fas fa-arrow-up"></i></button>
     </div>
+
+
     <script src="./logic.js" type="module"></script>
 
 </body>

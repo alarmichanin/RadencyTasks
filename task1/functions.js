@@ -18,6 +18,7 @@ export function writeData(arr) {
         return memberOfList
     }
 }
+//write data in obj 
 export function writeObj(nameOfPoint, created, category, content, dates) {
     let objForList = {}
     try {
@@ -86,7 +87,7 @@ export function editElementInTableSetDefault(element, list) {
         document.querySelector("#category").value = "RandomThought"
     document.querySelector("#content").value = list[indForEdit].content
 }
-
+//return default values in inputs
 export function editElementInTableUnableDefault() {
     document.querySelector("#nameOfTask").value = ""
     document.querySelector("#category").value = "Task"
@@ -106,7 +107,6 @@ export function editElementInTable(element, list, table) {
         }
         table.deleteRow(indForEdit + 1)
         writeNewElemToTable(list[indForEdit], table, indForEdit + 1)
-        console.log(list)
         form.style.display = "none"
     } catch (err) {
         console.log("Catch ERR")
@@ -130,7 +130,14 @@ export function archiveElementInTable(element, list, archive, table) {
     newCell.innerHTML = `<i class="fas fa-times-circle" id=\"removeFromArch\"></i>`
 
 }
-
+//removing from archive table element and paste it in the general table
+export function removeElementFromArch(element, list, archive, table) {
+    element.remove()
+    let indInList = getIndOfElem(element, archive)
+    list.push(archive[indInList])
+    archive.splice(indInList, 1)
+    writeNewElemToTable(list[list.length - 1], table, list.length)
+}
 // hiding date in form
 let dateBlock = document.querySelector("#blockWithDate")
 export function dateOn() {
@@ -139,3 +146,4 @@ export function dateOn() {
 export function dateOff() {
     dateBlock.style.display = "none"
 }
+

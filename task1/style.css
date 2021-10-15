@@ -48,3 +48,11 @@ table{
 #archiveTable{
    background-color: rgb(255, 255, 255);
 }
+#statisticTr{
+    background-color: rgb(70, 70, 70);
+    color: white;
+}
+#statisticTable{
+    width: 100%;
+    margin-top: 20%;
+}
