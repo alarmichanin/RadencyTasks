@@ -111,15 +111,24 @@ export function editElementInTable(element, list, table) {
     } catch (err) {
         console.log("Catch ERR")
     }
+    return list
 }
 //archive some element
-export function archiveElementInTable(element, list, archive) {
+export function archiveElementInTable(element, list, archive, table) {
     element.remove()
     let indInList = getIndOfElem(element, list)
     archive.push(list[indInList])
     list.splice(indInList, 1)
-    console.log(archive)
-    console.log(list)
+    let row = table.insertRow(archive.length)
+    let i = 0
+    for (let atr in archive[archive.length - 1]) {
+        let newCell = row.insertCell(i)
+        i++
+        newCell.innerHTML = archive[archive.length - 1][atr]
+    }
+    let newCell = row.insertCell(i)
+    newCell.innerHTML = `<i class="fas fa-times-circle" id=\"removeFromArch\"></i>`
+
 }
 
 // hiding date in form

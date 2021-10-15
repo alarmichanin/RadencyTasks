@@ -1,4 +1,4 @@
-.container{
+#container{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,7 +6,7 @@
 table{
     background:rgb(211, 211, 211);
 }
-th{
+#tableTh{
     color: white;
     background: grey;
 }
@@ -19,4 +19,32 @@ th{
 }
 #icons>i{
     margin: 2px;
+}
+#mainContent{
+    width: 99%;
+    position: absolute;
+    z-index: 1;
+}
+#archiveDiv{
+    display: none;
+    width: 50%;
+    height: 500px;
+    background-color: rgb(186, 186, 186);
+    position: relative;
+    flex-direction: column;
+    margin: auto;
+    z-index: 2;
+    border: solid black 2px;
+}
+#hideArchive{
+    width: 100%;
+    position: absolute;
+    bottom:0;
+}
+#archiveTr{
+    color: black;
+    
+}
+#archiveTable{
+   background-color: rgb(255, 255, 255);
 }
