@@ -1,6 +1,6 @@
 const AddForm = () => {
     return (
-        <div>
+        <div className="addForm">
             <label for="name">Name of point:</label>
             <input type="text" id="name"></input>
             <label for="typeTask">Type of your point:</label>
