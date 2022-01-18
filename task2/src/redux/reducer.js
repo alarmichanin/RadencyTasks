@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, UPDATE_TODO } from './actions';
+import { ADD_TODO, DELETE_TODO, UPDATE_TODO, DELETE_ALL } from './actions';
 import { todos } from './states';
 export let reducer = (state = todos, action) => {
     let newTodos;
@@ -11,12 +11,15 @@ export let reducer = (state = todos, action) => {
             newTodos = [...state];
             newTodos = newTodos.filter(todo => todo.id != action.payload)
             return newTodos;
+        case DELETE_ALL:
+            newTodos = []
+            return newTodos
         case UPDATE_TODO:
             newTodos = [...state];
             let index = -1;
             for (let i = 0; i < newTodos.length; i++) {
                 index++;
-                if (newTodos[i].id == action.payload.id) {
+                if (newTodos[i].id === action.payload.id) {
                     break;
                 }
             }
@@ -24,6 +27,9 @@ export let reducer = (state = todos, action) => {
                 newTodos[index] = action.payload;
                 return newTodos;
             }
+            break;
+        default:
+            break;
     }
     return state;
 }
