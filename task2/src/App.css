@@ -1,26 +1,30 @@
 *{
   overflow: hidden;
 }
+.app{
+  width: 90%;
+  margin: 0 auto;
+}
 .Header, .note,.countTableHeader,.countTableNote{
   background-color: #282c34;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(5px + 2vmin);
   color: white;
   
 }
-.col{
-  padding: 0 4.7%;
-  border: solid #434a57;
+.noteCol{
+  width: 17%;
+  margin: 0 auto;
+  padding: 10px;
 }
 .addBtn{
   width: 100%;
 }
 .countTable{
   width: 100%;
-  position: absolute;
   bottom: 0;
 }
 .addForm{

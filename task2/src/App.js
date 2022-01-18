@@ -6,7 +6,7 @@ import Main from './components/mainTable/Main';
 
 function App() {
   return (
-    <div>
+    <div className='app'>
       <Header />
       <Main />
       <AddForm />

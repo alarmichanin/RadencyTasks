@@ -6,7 +6,7 @@ const Header = () => {
             <div className="col">Category</div>
             <div className="col">Content</div>
             <div className="col">Dates</div>
-            <div className="col">icons</div>
+            <div className="col"><i class="fas fa-inbox" id="archive"></i> <i class="far fa-trash-alt"></i></div>
         </div>
     );
 }
