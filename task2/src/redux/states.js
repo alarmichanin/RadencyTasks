@@ -5,8 +5,8 @@ export let todos = [
         created: "October 14 2021",
         category: "Task",
         content: "Walk with my lovely dog",
-        dates: " "
-
+        dates: " ",
+        isActive: true
     },
     {
         id: 2,
@@ -14,7 +14,8 @@ export let todos = [
         created: "October 14 2021",
         category: "Task",
         content: "English,Math",
-        dates: "October 14 2021, October 23 2021"
+        dates: "October 14 2021, October 23 2021",
+        isActive: true
     },
     {
         id: 3,
@@ -22,7 +23,8 @@ export let todos = [
         created: "October 14 2021",
         category: "Idea",
         content: "Mb, Pehov or Zukov",
-        dates: " "
+        dates: " ",
+        isActive: true
     },
     {
         id: 4,
@@ -30,7 +32,8 @@ export let todos = [
         created: "October 14 2021",
         category: "Random Thought",
         content: "...",
-        dates: " "
+        dates: " ",
+        isActive: true
     },
     {
         id: 5,
@@ -38,7 +41,8 @@ export let todos = [
         created: "October 14 2021",
         category: "Task",
         content: "Bicycle",
-        dates: " "
+        dates: " ",
+        isActive: true
     },
     {
         id: 6,
@@ -46,7 +50,8 @@ export let todos = [
         created: "October 14 2021",
         category: "Idea",
         content: "Start do it, man",
-        dates: " "
+        dates: " ",
+        isActive: true
     },
     {
         id: 7,
@@ -54,6 +59,7 @@ export let todos = [
         created: "October 14 2021",
         category: "Task",
         content: "Mb, you will start do it?)",
-        dates: " "
+        dates: " ",
+        isActive: true
     }
 ]

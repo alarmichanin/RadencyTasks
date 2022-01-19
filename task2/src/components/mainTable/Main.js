@@ -4,7 +4,6 @@ import Note from "./Note"
 
 const Main = () => {
     const todos = useSelector(state => state)
-    console.log(todos)
     return (
         <div className="Main">
             {

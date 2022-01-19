@@ -1,7 +1,10 @@
 export const ADD_TODO = "ADD_TODO";
 export const DELETE_TODO = "DELETE_TODO";
 export const UPDATE_TODO = "UPDATE_TODO";
-export const DELETE_ALL = "DELETE_ALL"
+export const DELETE_ALL = "DELETE_ALL";
+export const ARCHIEVE_TODO = "ARCHIEVE_TODO";
+export const SHOW_ARCHIEVED = "SHOW_ARCHIEVED";
+
 export function addTask(todo) {
     return {
         type: ADD_TODO,
@@ -29,3 +32,15 @@ export function updateTask(todo) {
     }
 }
 
+export function archieveTask(isActive) {
+    return {
+        type: ARCHIEVE_TODO,
+        payload: isActive
+    }
+}
+export function showArchieved(isActive) {
+    return {
+        type: SHOW_ARCHIEVED,
+        payload: isActive
+    }
+}

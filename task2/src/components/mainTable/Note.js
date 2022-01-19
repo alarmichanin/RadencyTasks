@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { removeTask, updateTask } from "../../redux/actions";
+import { archieveTask, removeTask, updateTask } from "../../redux/actions";
 import { category } from '../addForm/typesConst';
 import DatePic from '../DatePic'
 
@@ -25,7 +25,10 @@ const Note = ({ todo }) => {
                     <div className="noteCol">{todo.dates}</div>
                     <div className="noteColIcon">
                         <i className="fas fa-inbox" id="archive"
-                            onClick={() => console.log("arch")}>
+                            onClick={() => {
+                                todo.isActive = false
+                                dispatch(archieveTask(todo.isActive))
+                            }}>
                         </i>
                         <i className="far fa-trash-alt" id="delete"
                             onClick={() => dispatch(removeTask(todo.id))}>
@@ -58,7 +61,10 @@ const Note = ({ todo }) => {
                     </div>
                     <div className="noteColIcon">
                         <i className="fas fa-inbox" id="archive"
-                            onClick={() => console.log("arch")}>
+                            onClick={() => {
+                                todo.isActive = false
+                                dispatch(archieveTask(todo.isActive))
+                            }}>
                         </i>
                         <i className="far fa-trash-alt" id="delete"
                             onClick={() => dispatch(removeTask(todo.id))}>

@@ -3,13 +3,21 @@ import { addTask } from "../../redux/actions";
 import { v1 as uuid } from 'uuid';
 import { useDispatch } from "react-redux";
 import { category, isNotEmpty } from './typesConst';
+import DatePic from "../DatePic";
+
+
+
 const AddForm = () => {
     let [name, setName] = useState();
     let [type, setType] = useState();
     let [desc, setDesc] = useState();
+    let [dates, setDates] = useState();
+
+    const [visible, setVisible] = useState(true);
+
     let dispatch = useDispatch();
     return (
-        <div className="addForm">
+        <div className="addForm" style={{ display: visible ? 'flex' : 'none' }}>
             <label htmlFor="name">Name of point:</label>
             <input onChange={(e) => setName(e.target.value)} value={name} type="text" id="name"></input>
             <label htmlFor="typeTask">Type of your point:</label>
@@ -21,6 +29,7 @@ const AddForm = () => {
             </select>
             <label htmlFor="desc">Description of point:</label>
             <input onChange={(e) => setDesc(e.target.value)} value={desc} type="text" id="desc"></input>
+            <DatePic onChange={setDates} />
             <button
                 onClick={() => {
                     if ((isNotEmpty(name) || isNotEmpty(desc)) && type) {
@@ -32,12 +41,14 @@ const AddForm = () => {
                                 created: date.toLocaleString('en-EN', { month: 'long' }) + " " + date.getDate() + " " + date.getFullYear(),
                                 category: category[type],
                                 content: desc,
-                                dates: " "
+                                dates: dates.join(", "),
+                                isActive: true
                             }
                         ))
                         setName('')
                         setType('')
                         setDesc('')
+                        setVisible(!visible)
                     }
                 }}
             >ADD TASK</button>

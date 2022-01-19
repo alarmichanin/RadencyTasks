@@ -1,5 +1,8 @@
-import { ADD_TODO, DELETE_TODO, UPDATE_TODO, DELETE_ALL } from './actions';
+import { ADD_TODO, DELETE_TODO, UPDATE_TODO, DELETE_ALL, ARCHIEVE_TODO, SHOW_ARCHIEVED } from './actions';
 import { todos } from './states';
+let archived = []
+
+
 export let reducer = (state = todos, action) => {
     let newTodos;
     switch (action.type) {
@@ -28,6 +31,16 @@ export let reducer = (state = todos, action) => {
                 return newTodos;
             }
             break;
+        case ARCHIEVE_TODO:
+            newTodos = [...state];
+            newTodos.map(todo => {
+                if (!todo.isActive)
+                    archived.push(todo)
+            })
+            newTodos = newTodos.filter(todo => todo.isActive)
+            return newTodos;
+        case SHOW_ARCHIEVED:
+            return archived;
         default:
             break;
     }

@@ -16,6 +16,7 @@ const DatePic = (props) => {
                 render={<Icon />}
                 editable={false}
                 format={"MM/DD/YYYY"}
+                calendarPosition={"left"}
                 onChange={(array) => {
                     setValue(array.length > 2 ? [...value] : array)
                 }}
