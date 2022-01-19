@@ -1,0 +1,48 @@
+/* *{
+  overflow: hidden;
+} */
+.app{
+  width: 90%;
+  margin: 0 auto;
+}
+.Header, .note,.countTableHeader,.countTableNote,.noteEdit{
+  background-color: #282c34;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-size: calc(5px + 2vmin);
+  color: white;
+  
+}
+.noteCol,.noteColIcon{
+  width: 17%;
+  margin: 0 auto;
+  padding: 10px;
+}
+.countTableNote,.countTableHeader{
+  width: 100%;
+  padding: 10px;
+}
+.countTableNoteCol{
+  width: 33%;
+}
+.noteColIcon{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.addBtn{
+  width: 100%;
+}
+.countTable{
+  width: 100%;
+  margin-top: 10%;
+}
+.addForm{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+  padding: 2%;
+}
