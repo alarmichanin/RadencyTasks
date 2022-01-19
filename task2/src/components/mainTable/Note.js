@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { archieveTask, removeTask, updateTask } from "../../redux/actions";
-import { category } from '../addForm/typesConst';
+import { category, isNotEmpty } from '../addForm/typesConst';
 import DatePic from '../DatePic'
 
 
@@ -71,25 +71,27 @@ const Note = ({ todo }) => {
                         </i>
                         <i className="fas fa-check-circle" id="edit"
                             onClick={() => {
-                                dispatch(updateTask(
-                                    {
-                                        ...todo,
-                                        name: name,
-                                        category: category[type],
-                                        content: desc,
-                                        dates: dates.join(", ")
+                                if ((isNotEmpty(name) || isNotEmpty(desc)) && type) {
+                                    dispatch(updateTask(
+                                        {
+                                            ...todo,
+                                            name: name,
+                                            category: category[type],
+                                            content: desc,
+                                            dates: dates.join(", ")
+                                        }
+                                    ))
+                                    if (!editable) {
+                                        setName(todo.name)
                                     }
-                                ))
-                                if (!editable) {
-                                    setName(todo.name)
+                                    setEditable(!editable)
                                 }
-                                setEditable(!editable)
                             }}>
                         </i>
                     </div>
                 </div>
             }
-        </div >
+        </div>
 
     )
 

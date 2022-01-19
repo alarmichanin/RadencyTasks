@@ -1,6 +1,7 @@
 import { ADD_TODO, DELETE_TODO, UPDATE_TODO, DELETE_ALL, ARCHIEVE_TODO, SHOW_ARCHIEVED } from './actions';
 import { todos } from './states';
-let archived = []
+
+export let archived = []
 
 
 export let reducer = (state = todos, action) => {
@@ -12,7 +13,7 @@ export let reducer = (state = todos, action) => {
             return newTodos;
         case DELETE_TODO:
             newTodos = [...state];
-            newTodos = newTodos.filter(todo => todo.id != action.payload)
+            newTodos = newTodos.filter(todo => todo.id !== action.payload)
             return newTodos;
         case DELETE_ALL:
             newTodos = []
@@ -26,7 +27,7 @@ export let reducer = (state = todos, action) => {
                     break;
                 }
             }
-            if (index != -1) {
+            if (index !== -1) {
                 newTodos[index] = action.payload;
                 return newTodos;
             }

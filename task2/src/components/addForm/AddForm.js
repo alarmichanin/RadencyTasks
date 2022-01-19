@@ -7,17 +7,16 @@ import DatePic from "../DatePic";
 
 
 
-const AddForm = () => {
+const AddForm = ({ showForm }) => {
     let [name, setName] = useState();
     let [type, setType] = useState();
     let [desc, setDesc] = useState();
     let [dates, setDates] = useState();
 
-    const [visible, setVisible] = useState(true);
 
     let dispatch = useDispatch();
     return (
-        <div className="addForm" style={{ display: visible ? 'flex' : 'none' }}>
+        <div className="addForm">
             <label htmlFor="name">Name of point:</label>
             <input onChange={(e) => setName(e.target.value)} value={name} type="text" id="name"></input>
             <label htmlFor="typeTask">Type of your point:</label>
@@ -48,7 +47,7 @@ const AddForm = () => {
                         setName('')
                         setType('')
                         setDesc('')
-                        setVisible(!visible)
+                        showForm()
                     }
                 }}
             >ADD TASK</button>
