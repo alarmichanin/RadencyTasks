@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, UPDATE_TODO, DELETE_ALL, ARCHIEVE_TODO, SHOW_ARCHIEVED } from './actions';
+import { ADD_TODO, DELETE_TODO, UPDATE_TODO, DELETE_ALL, ARCHIEVE_TODO } from './actions';
 import { todos } from './states';
 
 export let archived = []
@@ -40,8 +40,6 @@ export let reducer = (state = todos, action) => {
             })
             newTodos = newTodos.filter(todo => todo.isActive)
             return newTodos;
-        case SHOW_ARCHIEVED:
-            return archived;
         default:
             break;
     }

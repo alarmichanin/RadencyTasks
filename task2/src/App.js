@@ -6,7 +6,7 @@ import Main from './components/mainTable/Main';
 function App() {
   return (
     <div className='app'>
-      <Header />
+      <Header showArchive={false} />
       <Main />
       <CountTable />
     </div>
