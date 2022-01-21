@@ -1,7 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
-import notes from '../repositories/notes.js';
 
+import { stats } from '../helpers/notesStats.js';
+import Notes from '../repositories/notes.js';
 
+let notes = Notes
 
 export const getNotes = (req, res) => {
     res.send(notes);
@@ -13,8 +15,11 @@ export const getNote = (req, res) => {
     res.send(foundNote);
 }
 
+export const getStat = (req, res) => {
+    res.status(200).send(stats(notes))
+}
+
 export const createNote = (req, res) => {
-    //TODO: make cheking of data
     const note = req.body;
     notes.push({ id: uuidv4(), ...note });
     res.send(`Note with the name ${note.Name} added to the DB`);
@@ -22,22 +27,20 @@ export const createNote = (req, res) => {
 
 export const deleteNote = (req, res) => {
     const { id } = req.params;
-    notes = notes.filter(note => note.id !== id);
+    notes = notes.filter(note => note.id != id);
     res.send(`Note with the id: ${id} deleted from DB`);
 }
 
 export const updateNote = (req, res) => {
     const { id } = req.params;
     const { Name, Date, Category, Content, Active } = req.body;
-
     const note = notes.find(note => note.id == id);
-
     if (Name) note.Name = Name;
     if (Date) note.Date = Date;
     if (Category) note.Category = Category;
     if (Content) note.Content = Content;
-    if (Active) note.Active = Active;
+    note.Active = Active;
 
-    res.send(`Note with the id: ${id} has been updated`)
-
+    res.send(`Note with the id: ${id} has been updated`);
 }
+

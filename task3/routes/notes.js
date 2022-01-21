@@ -1,5 +1,7 @@
 import express from 'express';
-import { getNotes, getNote, createNote, deleteNote, updateNote } from '../services/notes.js'
+import { getNotes, getNote, getStat, createNote, deleteNote, updateNote } from '../services/notes.js'
+import { validation } from '../helpers/validation.js';
+import { createNoteSchema, updateNoteSchema } from '../helpers/notes.js';
 
 
 const router = express.Router();
@@ -9,12 +11,14 @@ const router = express.Router();
 
 router.get('/', getNotes);
 
+router.get('/stats', getStat);
+
 router.get('/:id', getNote);
 
-router.post('/', createNote);
+router.post('/', validation(createNoteSchema), createNote);
 
 router.delete('/:id', deleteNote);
 
-router.patch('/:id', updateNote);
+router.patch('/:id', validation(updateNoteSchema), updateNote);
 
 export default router;
